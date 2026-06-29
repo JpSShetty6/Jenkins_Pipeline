@@ -15,11 +15,13 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
+	stage('Build') {
+    		steps {
+        		dir('Java_Maven') {
+            		sh 'mvn clean package'
+        		}	
+ 		}
+	}
 
     }
 
