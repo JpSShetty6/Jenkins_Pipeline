@@ -3,6 +3,16 @@ pipeline {
 
     stages {
 
+	stage('Check Python') {
+		steps {
+        		sh 'whoami'
+        		sh 'which python3 || true'
+        		sh 'which pip3 || true'
+        		sh 'python3 --version || true'
+        		sh 'pip3 --version || true'
+    			}
+		}
+
         stage('Install') {
             steps {
                 dir('Python_App') {
