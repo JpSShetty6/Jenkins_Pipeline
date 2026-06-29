@@ -5,20 +5,37 @@ pipeline {
 
         stage('Install') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                dir('Python_App') {
+                    sh 'python3 --version'
+                    sh 'pip3 install -r requirements.txt'
+                }
             }
         }
 
         stage('Run') {
             steps {
-                sh 'python3 app.py'
+                dir('Python_App') {
+                    sh 'python3 app.py'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                sh 'pytest'
+                dir('Python_App') {
+                    sh 'pytest test_app.py'
+                }
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+
+        failure {
+            echo 'Pipeline failed.'
         }
     }
 }
