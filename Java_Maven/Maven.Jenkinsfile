@@ -18,7 +18,7 @@ pipeline {
 	stage('Build') {
     		steps {
         		dir('Java_Maven') {
-            		sh 'mvn clean package'
+            		sh 'mvn clean package -X'
         		}	
  		}
 	}
