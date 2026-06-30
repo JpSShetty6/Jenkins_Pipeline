@@ -1,16 +1,12 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AppTest {
 
     @Test
-    public void testAdd() {
-
-        assertEquals(30, App.add(10,20));
-
+    public void testMessage() {
+        assertEquals("Hello, Jenkins Maven Pipeline!", App.getMessage());
     }
-
 }
